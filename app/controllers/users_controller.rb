@@ -25,9 +25,9 @@ class UsersController < ApplicationController
     if @user.save
       token = issue_token(@user)
       notes = Note.where(user_id: @user.id)
-      render json: {user: {user: @user, token: token, notes: notes}}
+      render json: { user: {id: @user.id, username: @user.username, token: token}, notes: notes}
     else
-      render json: {user: { @user.errors, status: :unprocessable_entity}}
+      render json: { error: 'Invalid username/password.' }, status: 401
     end
   end
 
