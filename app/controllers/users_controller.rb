@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     }
 
    
-
     render json: UserSerializer.new(@users, options)
   end
 
@@ -26,9 +25,9 @@ class UsersController < ApplicationController
     if @user.save
       token = issue_token(@user)
       notes = Note.where(user_id: @user.id)
-      render json: {user: @user, token: token, notes: notes}
+      render json: {user: {user: @user, token: token, notes: notes}}
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: {user: { @user.errors, status: :unprocessable_entity}}
     end
   end
 
