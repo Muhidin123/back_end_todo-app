@@ -8,10 +8,11 @@ class AuthController < ApplicationController
           token = JWT.encode(payload, "secret", 'HS256')
           notes = Note.where(user_id: user.id)
           #ADD ALL NOTES FOR USER
-          render json: { user: {id: user.id, username: user.username, token: token}, notes: notes}
+          # render json: {user: UserSerializer.new(user), token: token}
+          render json: { user: {id: user.id, username: user.username, name: user.first_name ,token: token}, notes: notes}
 
       else
-        render json: { error: 'Invalid username/password.' }, status: 401
+        render json: { error: 'Invalid username or password.' }, status: 401
       end
     end
 
@@ -21,7 +22,6 @@ class AuthController < ApplicationController
       user_id = decoded_token[0]['user_id']
       user = User.find(user_id)
       notes = Note.where(user_id: user.id)
-      #ADD All notes for user
-      render json: { user: {id: user.id, username: user.username, token: token}, notes: notes}
+      render json: { user: {id: user.id, username: user.username, name: user.first_name , token: token}, notes: notes}
     end
 end
