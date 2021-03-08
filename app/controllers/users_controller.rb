@@ -5,10 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    options = {
-      include: [:notes]
-    }
-    render json: UserSerializer.new(@users, options)
+    render json: @users
   end
 
   # GET /users/1
