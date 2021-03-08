@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'rails', '~> 6.1', '>= 6.1.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -47,5 +47,3 @@ gem "active_model_serializers", "~> 0.10.12"
 gem "faker", "~> 2.15"
 
 gem "hirb", "~> 0.7.3"
-
-gem 'fast_jsonapi'
