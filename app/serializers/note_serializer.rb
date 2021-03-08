@@ -1,3 +1,5 @@
 class NoteSerializer < ActiveModel::Serializer
-  attributes object.all
+  # include FastJsonapi::ObjectSerializer
+  attributes :id, :title, :description, :category, :due_date, :completed, :user_id, :created_at
+  belongs_to :user
 end
