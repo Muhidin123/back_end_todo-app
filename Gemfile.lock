@@ -74,6 +74,8 @@ GEM
       activesupport
     concurrent-ruby (1.1.8)
     crass (1.0.6)
+    email_validator (2.2.2)
+      activemodel
     erubi (1.10.0)
     faker (2.16.0)
       i18n (>= 1.6, < 2)
@@ -177,6 +179,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
+  email_validator
   faker (~> 2.15)
   hirb (~> 0.7.3)
   image_processing (~> 1.2)

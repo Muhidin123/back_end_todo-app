@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         render json: { user: {id: @user.id, username: @user.username, token: token}, notes: []}
       end
     else
-      render json: { error: 'Invalid username/password.' }, status: 401
+      render json: { error: @user.errors.full_messages }, status: 401
     end
   end
 
