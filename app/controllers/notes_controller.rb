@@ -4,12 +4,13 @@ class NotesController < ApplicationController
   # GET /notes
   def index
     @notes = Note.all
-
-    render json: {error: "Unable to access information admin permission needed"}
+    
+    render json: @notes
   end
 
   # GET /notes/1
   def show
+
     render json: @note
   end
 
