@@ -3,9 +3,9 @@ class ApplicationController < ActionController::API
         JWT.encode({user_id: user.id}, "secret", 'HS256')
       end
     
-      def current_user
-        @user ||= User.find_by(id: user_id)
-      end
+      # def current_user
+      #   @user ||= User.find_by(id: user_id)
+      # end
     
       def token
         request.headers['Authorization']
@@ -13,17 +13,16 @@ class ApplicationController < ActionController::API
     
       def decoded_token
         begin
-          JWT.decode(token, ENV["MY_SECRET"], true, { :algorithm => 'HS256' })
+          JWT.decode(token, "secret", true, { :algorithm => 'HS256' })
         rescue JWT::DecodeError
-          [{}]
         end
       end
     
-      def user_id
-        decoded_token.first['user_id']
-      end
+      # def user_id
+      #   decoded_token.first['user_id']
+      # end
     
-      def logged_in?
-        !!current_user
-      end
+      # def logged_in?
+      #   !!current_user
+      # end
 end
