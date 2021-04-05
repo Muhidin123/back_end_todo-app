@@ -1,24 +1,34 @@
-# README
+# BACK END TODO APPLICATION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The stack is:
+- Rails 6.0
+- Postgres
 
-Things you may want to cover:
+Dependencies
+- Ruby 3.0.0
+- Bundler 2.2.3
+- Postgres
 
-* Ruby version
 
-* System dependencies
+# Running app locally
 
-* Configuration
+Install and start postgresql:
 
-* Database creation
+- On macOS, you can use pg_ctl -D /usr/local/var/postgres start
+- (To stop postgres use pg_ctl -D /usr/local/var/postgres stop)
 
-* Database initialization
+Install dependencies:
+- bundle install
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Setup the database:
 
-* Deployment instructions
+- rails db:setup
+- rails db:migrate
 
-* ...
+# Launch app
+
+Start the server with:
+- `rails server` or `rails s`
+
+Then go to http://localhost:3000 to view JSON if any.
